@@ -50,3 +50,76 @@ This repository contains four projects:
 
 - Backend: run `mvn -q -e -DskipTests package` at repo root to build services.
 - Frontend: run `npm install` then `npm run dev` inside `frontend-app`.
+
+
+
+
+#  Cloud-Enabled Deployment in Action with GCP
+
+This repository demonstrates a **cloud-ready microservices system** deployed on **Google Cloud Platform (GCP)**, consisting of four independent projects:
+
+- **course-service** → Spring Boot + MySQL
+- **student-service** → Spring Boot + MongoDB
+- **media-service** → Spring Boot + Local / Cloud (GCS / MinIO) Storage
+- **frontend-app** → React + TypeScript (Vite + MUI)
+
+---
+
+##  Backend Services
+
+### 1. Course Service (`course-service`)
+- **Entity:** `Course(id, name, duration)`
+- **Endpoints:**
+  - `GET /courses` – List all courses
+  - `GET /courses/{id}` – Get course by ID
+  - `POST /courses` – Create new course
+  - `DELETE /courses/{id}` – Delete course
+- **Port:** `8081`
+- **Configuration:** Update **Cloud SQL (MySQL)** credentials in `application.properties`
+
+---
+
+### 2. Student Service (`student-service`)
+- **Document:** `Student(registrationNumber, fullName, address, contact, email)`
+- **Endpoints:**
+  - `GET /students` – List all students
+  - `GET /students/{id}` – Get student by ID
+  - `POST /students` – Register new student
+  - `DELETE /students/{id}` – Delete student
+- **Port:** `8082`
+- **Configuration:** Update **MongoDB (Atlas or GCP VM)** connection in `application.properties`
+
+---
+
+### 3. Media Service (`media-service`)
+- **Resource:** File storage API
+- **Endpoints:**
+  - `POST /files` – Upload file (`multipart/form-data`)
+  - `GET /files` – List all uploaded files
+  - `GET /files/{id}` – Fetch file by ID
+  - `DELETE /files/{id}` – Delete file
+- **Port:** `8083`
+- **Storage:**
+  - Default → Local disk `./data/media`
+  - Override with environment variable → `MEDIA_STORAGE_DIR`
+  - Extendable → **Google Cloud Storage (GCS)** or MinIO backend
+
+---
+
+##  Frontend App (`frontend-app`)
+A modern **React + TypeScript** frontend powered by **Vite**, **Material UI**, and **Axios**.
+- **Sections:** Courses | Students | Media
+- **Scripts:**
+  - `npm run dev` → Start development server
+  - `npm run build` → Build production bundle
+  - `npm run preview` → Preview production build
+
+---
+
+##  Build & Run
+
+### Backend Services
+```bash
+# From repo root
+mvn -q -e -DskipTests package
+
