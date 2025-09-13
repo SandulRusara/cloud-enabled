@@ -54,7 +54,7 @@ This repository contains four projects:
 
 
 
-#  Cloud-Enabled Deployment in Action with GCP
+# Cloud-Enabled Deployment in Action with GCP
 
 This repository demonstrates a **cloud-ready microservices system** deployed on **Google Cloud Platform (GCP)**, consisting of four independent projects:
 
@@ -65,7 +65,7 @@ This repository demonstrates a **cloud-ready microservices system** deployed on 
 
 ---
 
-##  Backend Services
+## Backend Services
 
 ### 1. Course Service (`course-service`)
 - **Entity:** `Course(id, name, duration)`
@@ -106,7 +106,7 @@ This repository demonstrates a **cloud-ready microservices system** deployed on 
 
 ---
 
-##  Frontend App (`frontend-app`)
+## Frontend App (`frontend-app`)
 A modern **React + TypeScript** frontend powered by **Vite**, **Material UI**, and **Axios**.
 - **Sections:** Courses | Students | Media
 - **Scripts:**
@@ -116,10 +116,17 @@ A modern **React + TypeScript** frontend powered by **Vite**, **Material UI**, a
 
 ---
 
-##  Build & Run
+## Project Demo Video
+You can watch the demo here:  
+[Watch on Google Drive](https://drive.google.com/drive/folders/1mSjgTxyEjO0e0cS-WyBdkq9xGCUNvRi_?usp=sharing)
+
+
+## Build & Run
 
 ### Backend Services
 ```bash
 # From repo root
 mvn -q -e -DskipTests package
+
+
 
