@@ -1,3 +1,8 @@
+## Student Information
+- Name: Sandul Rusara
+- Registration Number: 2301671060
+- Email: sandulrusara8@gmail.com
+
 # Cloud Enabled Deployment In Action with AWS
 
 This repository contains four projects:
@@ -56,60 +61,60 @@ This repository contains four projects:
 
 # Cloud-Enabled Deployment in Action with GCP
 
-This repository demonstrates a **cloud-ready microservices system** deployed on **Google Cloud Platform (GCP)**, consisting of four independent projects:
+This repository demonstrates a cloud-ready microservices system deployed on Google Cloud Platform (GCP), consisting of four independent projects:
 
-- **course-service** → Spring Boot + MySQL
-- **student-service** → Spring Boot + MongoDB
-- **media-service** → Spring Boot + Local / Cloud (GCS / MinIO) Storage
-- **frontend-app** → React + TypeScript (Vite + MUI)
+- course-service → Spring Boot + MySQL
+- student-service → Spring Boot + MongoDB
+- media-service → Spring Boot + Local / Cloud (GCS / MinIO) Storage
+- frontend-app → React + TypeScript (Vite + MUI)
 
 ---
 
 ## Backend Services
 
 ### 1. Course Service (`course-service`)
-- **Entity:** `Course(id, name, duration)`
-- **Endpoints:**
+- Entity: `Course(id, name, duration)`
+- Endpoints:
   - `GET /courses` – List all courses
   - `GET /courses/{id}` – Get course by ID
   - `POST /courses` – Create new course
   - `DELETE /courses/{id}` – Delete course
-- **Port:** `8081`
-- **Configuration:** Update **Cloud SQL (MySQL)** credentials in `application.properties`
+- Port: `8081`
+- Configuration: Update Cloud SQL (MySQL) credentials in `application.properties`
 
 ---
 
 ### 2. Student Service (`student-service`)
-- **Document:** `Student(registrationNumber, fullName, address, contact, email)`
-- **Endpoints:**
+- Document: `Student(registrationNumber, fullName, address, contact, email)`
+- Endpoints:
   - `GET /students` – List all students
   - `GET /students/{id}` – Get student by ID
   - `POST /students` – Register new student
   - `DELETE /students/{id}` – Delete student
-- **Port:** `8082`
-- **Configuration:** Update **MongoDB (Atlas or GCP VM)** connection in `application.properties`
+- Port: `8082`
+- Configuration: Update MongoDB (Atlas or GCP VM) connection in `application.properties`
 
 ---
 
 ### 3. Media Service (`media-service`)
-- **Resource:** File storage API
-- **Endpoints:**
+- Resource: File storage API
+- Endpoints:
   - `POST /files` – Upload file (`multipart/form-data`)
   - `GET /files` – List all uploaded files
   - `GET /files/{id}` – Fetch file by ID
   - `DELETE /files/{id}` – Delete file
-- **Port:** `8083`
-- **Storage:**
+- Port: `8083`
+- Storage:
   - Default → Local disk `./data/media`
   - Override with environment variable → `MEDIA_STORAGE_DIR`
-  - Extendable → **Google Cloud Storage (GCS)** or MinIO backend
+  - Extendable → Google Cloud Storage (GCS) or MinIO backend
 
 ---
 
 ## Frontend App (`frontend-app`)
-A modern **React + TypeScript** frontend powered by **Vite**, **Material UI**, and **Axios**.
-- **Sections:** Courses | Students | Media
-- **Scripts:**
+A modern React + TypeScript frontend powered by Vite, Material UI, and Axios.
+- Sections: Courses | Students | Media
+- Scripts:
   - `npm run dev` → Start development server
   - `npm run build` → Build production bundle
   - `npm run preview` → Preview production build
